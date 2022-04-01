@@ -1,17 +1,18 @@
-'use strict'
+'use strict';
+
 //Adicionar nuevo gatito
-function addNewKitten(event) {
-    event.preventDefault();
+function addNewKitten() {
     const newKittenDataObject = {
-        valueDesc: inputDesc.value,
-        valuePhoto: inputPhoto.value,
-        valueName: inputName.value,
+        image: inputPhoto.value,
+        desc: inputDesc.value,
+        name: inputName.value,
+        race: inputRace.value,
       };
 
-    if (valueDesc === "" && valuePhoto === "" && valueName === "") {
+    if (newKittenDataObject.desc === "" && newKittenDataObject.image === "" && newKittenDataObject.name === "" && newKittenDataObject.race) {
         labelMesageError.innerHTML = "Debe rellenar todos los valores";
     } else {
-        if (valueDesc !== "" && valuePhoto !== "" && valueName !== "") {
+        if (newKittenDataObject.desc !== "" && newKittenDataObject.image !== "" && newKittenDataObject.name !== "") {
             labelMesageError.innerHTML = "";
         }
     }
@@ -19,17 +20,21 @@ function addNewKitten(event) {
     kittenDataList.push(newKittenDataObject);
 }
 
-function cleanNewKittenInput(event) {
-    event.preventDefault();
+function cleanNewKittenInput() {
     newFormElement.classList.add("collapsed");
     inputDesc.value = "";
     inputPhoto.value = "";
     inputName.value = "";
 }
 
-function nameMesage (event) {
+function nameMesage () {
     labelMesageError.innerHTML = 'Mola! Un nuevo gatito en Adalab!';
 }
+
+function paintNewKitten() {
+    renderKittenList(kittenDataList);
+}
+
 
 //Eventos
 function handleFunction(event) {
@@ -37,6 +42,7 @@ function handleFunction(event) {
     addNewKitten();
     cleanNewKittenInput();
     nameMesage();
+    paintNewKitten();
 }
 
 buttonAdd.addEventListener("click",handleFunction);
