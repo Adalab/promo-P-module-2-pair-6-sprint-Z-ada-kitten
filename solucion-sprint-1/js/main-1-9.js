@@ -1,22 +1,32 @@
 'use strict';
 function filterKitten(event) {
-    event.preventDefault();
+  event.preventDefault();
 
-    const descrSearchText = input_search_desc.value;
+  const descrSearchText = input_search_desc.value;
 
-    listElement.innerHTML = "";
+  listElement.innerHTML = '';
 
-    const filterKiteen = kittenDataList.filter((pepino) => pepino.)
+//   ¿Con FILTER podemos buscar directamente en el elemento "kittenDataList" o tenemos que especificar la ruta hasta entrar a la propiedad "desc" del objeto (gato 1 o gato X) del array de gatitos (como está mal hecho en la línea siguiente)?
+  const kittens = kittenDataList[i].kittenData_${i+1}.desc.filter((michiDes) =>
+    michiDes.includes(descrSearchText)
+  );
 
-    //hay que añadir el nuevo array con el filter
+  // si michiDes incluye descrSearchText
 
+  //hay que añadir el nuevo array con el filter
 
-    /*for (const kittenItem of kittenDataList) {
+  /*for (const kittenItem of kittenDataList) {
 
         if (kittenItem.desc.includes(descrSearchText)) {
             listElement.innerHTML += renderKitten(kittenItem);
         }
     }*/
-
 }
-//searchButton.addEventListener("click", filterKitten);
+
+// function filterKitten(ev) {
+//Modifica el código:
+//Haz un filter sobre el listado de gatitos
+//Vuelve a pintar el listado de gatitos filtrados en el HTML.
+// }
+
+searchButton.addEventListener('click', filterKitten);
