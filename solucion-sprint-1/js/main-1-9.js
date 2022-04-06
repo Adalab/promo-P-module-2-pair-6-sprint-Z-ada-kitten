@@ -6,9 +6,9 @@ function filterKitten(event) {
 
   listElement.innerHTML = '';
 
-//   ¿Con FILTER podemos buscar directamente en el elemento "kittenDataList" o tenemos que especificar la ruta hasta entrar a la propiedad "desc" del objeto (gato 1 o gato X) del array de gatitos (como está mal hecho en la línea siguiente)?
-  const kittens = kittenDataList[i].kittenData_${i+1}.desc.filter((michiDes) =>
-    michiDes.includes(descrSearchText)
+  //   ¿Con FILTER podemos buscar directamente en el elemento "kittenDataList" o tenemos que especificar la ruta hasta entrar a la propiedad "desc" del objeto (gato 1 o gato X) del array de gatitos (como está mal hecho en la línea siguiente)?
+  const kittens = kittenDataList.filter((michi) =>
+    michi.desc.includes(descrSearchText)
   );
 
   // si michiDes incluye descrSearchText
